@@ -1,3 +1,5 @@
+using TaskMaster.Infrastructure.Extensions;
+
 namespace TaskMaster
 {
 	public class Program
@@ -9,7 +11,12 @@ namespace TaskMaster
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
 
+			builder.Services.AddInfrastructure(builder.Configuration);
+
 			var app = builder.Build();
+
+			var scope = app.Services.CreateScope();
+
 
 			// Configure the HTTP request pipeline.
 			if (!app.Environment.IsDevelopment())
