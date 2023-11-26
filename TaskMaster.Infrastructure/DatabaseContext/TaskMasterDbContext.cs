@@ -10,6 +10,9 @@ namespace TaskMaster.Infrastructure.DatabaseContext
 		public DbSet<Domain.Entities.Error> Errors { get; set; }
 		public DbSet<Domain.Entities.Warning> Warnings { get; set; }
 
+		public DbSet<Domain.Entities.Priority> Priority { get; set; }
+		public DbSet<Domain.Entities.Category> Category { get; set; }
+
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{

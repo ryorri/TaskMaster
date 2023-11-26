@@ -13,6 +13,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
+using TaskMaster.Infrastructure.Seeders;
 
 
 
@@ -25,7 +26,8 @@ namespace TaskMaster.Infrastructure.Extensions
 			services.AddDbContext<TaskMasterDbContext>(options => options.UseSqlServer(
 				configuration.GetConnectionString("TaskMaster")));
 
-			//services.AddScoped<CarWorkshopSeeder>();
+			services.AddScoped<PrioritySeeder>();
+			services.AddScoped<CategorySeeder>();
 		}
 	}
 }

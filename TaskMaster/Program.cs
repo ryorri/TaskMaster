@@ -1,11 +1,7 @@
 using TaskMaster.Infrastructure.Extensions;
+using TaskMaster.Infrastructure.Seeders;
 
-namespace TaskMaster
-{
-	public class Program
-	{
-		public static void Main(string[] args)
-		{
+
 			var builder = WebApplication.CreateBuilder(args);
 
 			// Add services to the container.
@@ -16,6 +12,14 @@ namespace TaskMaster
 			var app = builder.Build();
 
 			var scope = app.Services.CreateScope();
+
+			#region Seeder
+			var prioseeder = scope.ServiceProvider.GetRequiredService<PrioritySeeder>();
+			var categoryseeder = scope.ServiceProvider.GetRequiredService<CategorySeeder>();
+
+			await categoryseeder.Seed();
+			await prioseeder.Seed();
+			#endregion
 
 
 			// Configure the HTTP request pipeline.
@@ -38,6 +42,4 @@ namespace TaskMaster
 				pattern: "{controller=Home}/{action=Index}/{id?}");
 
 			app.Run();
-		}
-	}
-}
+		
