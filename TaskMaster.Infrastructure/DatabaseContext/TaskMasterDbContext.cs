@@ -7,14 +7,16 @@ namespace TaskMaster.Infrastructure.DatabaseContext
 	{
 		public TaskMasterDbContext(DbContextOptions<TaskMasterDbContext> options) : base(options)
 		{ }
-		public DbSet<TaskMaster.Domain.Entities.Error> Errors { get; set; }
-		public DbSet<TaskMaster.Domain.Entities.Warning> Warnings { get; set; }
+		public DbSet<Domain.Entities.Error> Errors { get; set; }
+		public DbSet<Domain.Entities.Warning> Warnings { get; set; }
 
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Domain.Entities.Error>();
 			modelBuilder.Entity<Domain.Entities.Warning>();
+			modelBuilder.Entity<Domain.Entities.Category>();
+			modelBuilder.Entity<Domain.Entities.Priority>();
 
 		}
 

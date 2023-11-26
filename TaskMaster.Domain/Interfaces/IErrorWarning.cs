@@ -8,6 +8,11 @@
         int Id { get; set; }
         string Title { get; set; }
 
+        int Priority { get; set; }
+        string Answer { get; set; }
+
+        string Category { get; set; }
+
         void EncodeName();
     }
 }
