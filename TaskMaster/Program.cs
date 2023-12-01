@@ -1,5 +1,8 @@
 using TaskMaster.Infrastructure.Extensions;
 using TaskMaster.Infrastructure.Seeders;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using TaskMaster.Infrastructure.DatabaseContext;
 
 namespace TaskMaster
 {
@@ -8,7 +11,6 @@ namespace TaskMaster
         public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -40,6 +42,8 @@ namespace TaskMaster
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();;
 
             
 
