@@ -1,0 +1,38 @@
+﻿@*@model IEnumerable<TaskMaster.Application.Objects.ErrorDto>*@
+@model Tuple<IEnumerable<TaskMaster.Application.Objects.ErrorDto>, IEnumerable<TaskMaster.Application.Objects.WarningDto>>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p>Title</p>
+            </th>
+            <th>
+                <p>Description</p>
+            </th>
+            <th>
+                <p>Answer</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Item1) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

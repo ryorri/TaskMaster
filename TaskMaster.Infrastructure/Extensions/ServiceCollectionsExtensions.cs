@@ -4,6 +4,8 @@ using TaskMaster.Infrastructure.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using TaskMaster.Infrastructure.Seeders;
 using Microsoft.AspNetCore.Identity;
+using TaskMaster.Domain.Interfaces;
+using TaskMaster.Infrastructure.Repositories;
 
 namespace TaskMaster.Infrastructure.Extensions
 {
@@ -17,8 +19,12 @@ namespace TaskMaster.Infrastructure.Extensions
 			services.AddDefaultIdentity<IdentityUser>()
 				.AddEntityFrameworkStores<TaskMasterDbContext>();
 
-			services.AddScoped<PrioritySeeder>();
-			services.AddScoped<CategorySeeder>();
-		}
+            services.AddScoped<IWarrningRepo, WarrningRepo>();
+            services.AddScoped<IErrorRepo, ErrorRepo>();
+            services.AddScoped<ICategoryRepo, CategoryRepo>();
+
+            services.AddScoped<PrioritySeeder>();
+            services.AddScoped<CategorySeeder>();
+        }
 	}
 }

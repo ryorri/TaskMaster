@@ -3,6 +3,8 @@ using TaskMaster.Infrastructure.Seeders;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TaskMaster.Infrastructure.DatabaseContext;
+using TaskMaster.Application.Extensions;
+
 
 namespace TaskMaster
 {
@@ -16,6 +18,7 @@ namespace TaskMaster
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddInfrastructure(builder.Configuration);
+            builder.Services.AddApplication();
 
 
 
@@ -48,11 +51,11 @@ namespace TaskMaster
             
 
             app.UseAuthorization();
-
+            app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
-            app.MapRazorPages();
+       
             app.Run();
         }
     }

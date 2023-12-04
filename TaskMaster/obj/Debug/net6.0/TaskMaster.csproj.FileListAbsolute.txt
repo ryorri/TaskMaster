@@ -349,3 +349,4 @@ S:\Studia\Semestr III\Programowanie w ASP.Net\Projekt_TaskMaster\TaskMaster\Task
 S:\Studia\Semestr III\Programowanie w ASP.Net\Projekt_TaskMaster\TaskMaster\TaskMaster\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 S:\Studia\Semestr III\Programowanie w ASP.Net\Projekt_TaskMaster\TaskMaster\TaskMaster\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 S:\Studia\Semestr III\Programowanie w ASP.Net\Projekt_TaskMaster\TaskMaster\TaskMaster\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+S:\Studia\Semestr III\Programowanie w ASP.Net\Projekt_TaskMaster\TaskMaster\TaskMaster\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

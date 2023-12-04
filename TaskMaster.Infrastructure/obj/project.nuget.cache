@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "bSNa0bqpEceYAUmbLMTTmtcz26QlR5UD/nJ1Lc7LQhMesyLtragonppGRZCrZwI9pCYiK652fGRjlkkycyvq0A==",
+  "dgSpecHash": "HFIJR7EtGKNDwZ1/1BsHqnm7gaYB6JwSIDz+hnOOU7bpKweh9W80uzBq/kM5087A40d3OpDheCzcL+Ab0ucL7w==",
   "success": true,
   "projectFilePath": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster.Infrastructure\\TaskMaster.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rafał\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Rafał\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
