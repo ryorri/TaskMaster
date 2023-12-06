@@ -22,6 +22,7 @@ namespace TaskMaster.Infrastructure.Extensions
             services.AddScoped<IWarrningRepo, WarrningRepo>();
             services.AddScoped<IErrorRepo, ErrorRepo>();
             services.AddScoped<ICategoryRepo, CategoryRepo>();
+            services.AddScoped<IPriorityRepo, PriorityRepo>();
 
             services.AddScoped<PrioritySeeder>();
             services.AddScoped<CategorySeeder>();

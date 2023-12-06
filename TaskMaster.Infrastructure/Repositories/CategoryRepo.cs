@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TaskMaster.Domain.Entities;
 using TaskMaster.Domain.Interfaces;
 using TaskMaster.Infrastructure.DatabaseContext;
@@ -20,5 +21,6 @@ namespace TaskMaster.Infrastructure.Repositories
         }
 
         public async Task<IEnumerable<Category>> GetAll() => await _dbContext.Category.ToListAsync();
+
     }
 }

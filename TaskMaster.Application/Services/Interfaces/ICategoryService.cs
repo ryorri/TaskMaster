@@ -1,7 +1,7 @@
 ﻿using TaskMaster.Application.Objects;
 using TaskMaster.Domain.Entities;
 
-namespace TaskMaster.Application.Services
+namespace TaskMaster.Application.Services.Interfaces
 {
     public interface ICategoryService
     {

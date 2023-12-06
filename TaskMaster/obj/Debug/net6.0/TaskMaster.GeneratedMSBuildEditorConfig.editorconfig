@@ -40,8 +40,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/CreatingViews/CreateError.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlYXRpbmdWaWV3c1xDcmVhdGVFcnJvci5jc2h0bWw=
+[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/CRUD/CreateError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JVRFxDcmVhdGVFcnJvci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/DatabaseViews/_ErrorPartial.cshtml]
@@ -54,10 +54,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/Home/Indexs.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/Home/Privacy.cshtml]

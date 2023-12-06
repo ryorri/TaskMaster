@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TaskMaster.Application.Objects;
+using TaskMaster.Application.Services.Interfaces;
 using TaskMaster.Domain.Interfaces;
 
 namespace TaskMaster.Application.Services

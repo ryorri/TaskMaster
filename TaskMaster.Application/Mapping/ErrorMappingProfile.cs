@@ -20,6 +20,9 @@ namespace TaskMaster.Application.Mapping
 
             CreateMap<CategoryDto, Domain.Entities.Category>();
             CreateMap<Domain.Entities.Category, CategoryDto>();
+
+            CreateMap<PriorityDto, Domain.Entities.Priority>();
+            CreateMap<Domain.Entities.Priority, PriorityDto>();
         }
 
     }

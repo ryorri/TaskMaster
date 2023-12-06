@@ -12,8 +12,8 @@ using TaskMaster.Infrastructure.DatabaseContext;
 namespace TaskMaster.Infrastructure.Migrations
 {
     [DbContext(typeof(TaskMasterDbContext))]
-    [Migration("20231201191417_Identity")]
-    partial class Identity
+    [Migration("20231206170329_AgainDatabaser")]
+    partial class AgainDatabaser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -169,10 +169,12 @@ namespace TaskMaster.Infrastructure.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -209,10 +211,12 @@ namespace TaskMaster.Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -252,7 +256,6 @@ namespace TaskMaster.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Answer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
@@ -310,7 +313,6 @@ namespace TaskMaster.Infrastructure.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Answer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
@@ -396,13 +398,13 @@ namespace TaskMaster.Infrastructure.Migrations
             modelBuilder.Entity("TaskMaster.Domain.Entities.Error", b =>
                 {
                     b.HasOne("TaskMaster.Domain.Entities.Category", "Category")
-                        .WithMany()
+                        .WithMany("ErrorEntry")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TaskMaster.Domain.Entities.Priority", "Priority")
-                        .WithMany()
+                        .WithMany("ErrorEntry")
                         .HasForeignKey("PriorityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -415,13 +417,13 @@ namespace TaskMaster.Infrastructure.Migrations
             modelBuilder.Entity("TaskMaster.Domain.Entities.Warning", b =>
                 {
                     b.HasOne("TaskMaster.Domain.Entities.Category", "Category")
-                        .WithMany()
+                        .WithMany("WarningEntry")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TaskMaster.Domain.Entities.Priority", "Priority")
-                        .WithMany()
+                        .WithMany("WarningEntry")
                         .HasForeignKey("PriorityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -429,6 +431,20 @@ namespace TaskMaster.Infrastructure.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Priority");
+                });
+
+            modelBuilder.Entity("TaskMaster.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("ErrorEntry");
+
+                    b.Navigation("WarningEntry");
+                });
+
+            modelBuilder.Entity("TaskMaster.Domain.Entities.Priority", b =>
+                {
+                    b.Navigation("ErrorEntry");
+
+                    b.Navigation("WarningEntry");
                 });
 #pragma warning restore 612, 618
         }

@@ -12,6 +12,8 @@ namespace TaskMaster.Domain.Entities
 		public string Name { get; set; }
 		public string Description { get; set; }
 
+        public ICollection<Error> ErrorEntry { get; set; }
+        public ICollection<Warning> WarningEntry { get; set; }
 
     }
 }
