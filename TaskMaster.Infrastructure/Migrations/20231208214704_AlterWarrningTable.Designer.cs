@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskMaster.Infrastructure.DatabaseContext;
 
@@ -11,9 +12,10 @@ using TaskMaster.Infrastructure.DatabaseContext;
 namespace TaskMaster.Infrastructure.Migrations
 {
     [DbContext(typeof(TaskMasterDbContext))]
-    partial class TaskMasterDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231208214704_AlterWarrningTable")]
+    partial class AlterWarrningTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -326,6 +328,9 @@ namespace TaskMaster.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PriorityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -333,6 +338,8 @@ namespace TaskMaster.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
+
+                    b.HasIndex("PriorityId");
 
                     b.ToTable("Warnings");
                 });
@@ -415,6 +422,10 @@ namespace TaskMaster.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TaskMaster.Domain.Entities.Priority", null)
+                        .WithMany("WarningEntry")
+                        .HasForeignKey("PriorityId");
+
                     b.Navigation("Category");
                 });
 
@@ -428,6 +439,8 @@ namespace TaskMaster.Infrastructure.Migrations
             modelBuilder.Entity("TaskMaster.Domain.Entities.Priority", b =>
                 {
                     b.Navigation("ErrorEntry");
+
+                    b.Navigation("WarningEntry");
                 });
 #pragma warning restore 612, 618
         }

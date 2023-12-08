@@ -12,7 +12,6 @@ namespace TaskMaster.Domain.Entities
 		public string _Priority { get; set; }
 
         public ICollection<Error> ErrorEntry { get; set; }
-        public ICollection<Warning> WarningEntry { get; set; }
 
     }
 }

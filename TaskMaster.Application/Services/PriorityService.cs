@@ -24,8 +24,8 @@ namespace TaskMaster.Application.Services
 
         public async Task<IEnumerable<PriorityDto>> GetAll()
         {
-            var cat = await _prioRepo.GetAll();
-            var dtos = _mapper.Map<IEnumerable<PriorityDto>>(cat);
+            var prio = await _prioRepo.GetAll();
+            var dtos = _mapper.Map<IEnumerable<PriorityDto>>(prio);
 
             return dtos;
         }

@@ -10,7 +10,6 @@ namespace TaskMaster.Domain.Interfaces
         int Id { get; set; }
         string Title { get; set; }
 
-        Priority Priority { get; set; }
         string Answer { get; set; }
 
         Category Category { get; set; }

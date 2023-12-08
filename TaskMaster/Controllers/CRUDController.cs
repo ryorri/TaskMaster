@@ -49,7 +49,6 @@ namespace TaskMaster.Controllers
 
             return View();
         }
-        // POST: CRUDController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateError(Domain.Entities.Error error)
@@ -57,6 +56,50 @@ namespace TaskMaster.Controllers
             await _errorService.Create(error);
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> CreateWarning()
+        {
+            var catModel = await _categoryService.GetAll();
+          
+            var categories = catModel.ToList().Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+            });
+
+
+            ViewBag.catModelView = categories;
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateWarning(Domain.Entities.Warning warr)
+        {
+            await _warningService.Create(warr);
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // GET: CRUDController/Edit/5
         public ActionResult Edit(int id)

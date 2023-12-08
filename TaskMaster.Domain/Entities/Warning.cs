@@ -12,8 +12,6 @@ namespace TaskMaster.Domain.Entities
 		public string? Description { get; set; }
 		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 		public string Encodedname { get; private set; } = default!;
-		public int PriorityId { get; set; }
-		public Priority Priority { get; set; }
         public string? Answer { get; set; } = default!;
 
 		public void EncodeName() => Encodedname = Title.ToLower().Replace(" ", "-");
