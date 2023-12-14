@@ -29,9 +29,13 @@ namespace TaskMaster
 
             var prioseeder = scope.ServiceProvider.GetRequiredService<PrioritySeeder>();
             var categoryseeder = scope.ServiceProvider.GetRequiredService<CategorySeeder>();
+            var roleSeeder = scope.ServiceProvider.GetRequiredService<RoleSeeder>();
+            var userSeeder = scope.ServiceProvider.GetRequiredService<UserSeeder>();
 
             await categoryseeder.Seed();
             await prioseeder.Seed();
+            await roleSeeder.Seed();
+            await userSeeder.Seed();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

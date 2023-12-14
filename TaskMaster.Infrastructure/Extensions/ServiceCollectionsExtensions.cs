@@ -6,6 +6,7 @@ using TaskMaster.Infrastructure.Seeders;
 using Microsoft.AspNetCore.Identity;
 using TaskMaster.Domain.Interfaces;
 using TaskMaster.Infrastructure.Repositories;
+using TaskMaster.Infrastructure.Methods.AdminPanelMethods;
 
 namespace TaskMaster.Infrastructure.Extensions
 {
@@ -17,6 +18,7 @@ namespace TaskMaster.Infrastructure.Extensions
 				configuration.GetConnectionString("TaskMaster")));
 
 			services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()
 				.AddEntityFrameworkStores<TaskMasterDbContext>();
 
             services.AddScoped<IWarrningRepo, WarrningRepo>();
@@ -26,6 +28,10 @@ namespace TaskMaster.Infrastructure.Extensions
 
             services.AddScoped<PrioritySeeder>();
             services.AddScoped<CategorySeeder>();
+            services.AddScoped<RoleSeeder>();
+            services.AddScoped<UserSeeder>();
+
+            services.AddScoped<UsersManipulation>();
         }
 	}
 }

@@ -242,7 +242,7 @@ namespace TaskMaster.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Error", b =>
@@ -282,7 +282,7 @@ namespace TaskMaster.Infrastructure.Migrations
 
                     b.HasIndex("PriorityId");
 
-                    b.ToTable("Errors");
+                    b.ToTable("Errors", (string)null);
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Priority", b =>
@@ -299,7 +299,7 @@ namespace TaskMaster.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Priority");
+                    b.ToTable("Priority", (string)null);
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Warning", b =>
@@ -334,7 +334,7 @@ namespace TaskMaster.Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Warnings");
+                    b.ToTable("Warnings", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
