@@ -31,7 +31,7 @@ namespace TaskMaster.Infrastructure.Extensions
             services.AddScoped<RoleSeeder>();
             services.AddScoped<UserSeeder>();
 
-            services.AddScoped<UsersManipulation>();
+            services.AddScoped<CRUDManipulation>();
         }
 	}
 }

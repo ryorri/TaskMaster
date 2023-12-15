@@ -19,6 +19,27 @@ namespace TaskMaster.Infrastructure.Repositories
              await _dbContext.SaveChangesAsync();
         }
 
+
         public async Task<IEnumerable<Error>> GetAll() => await _dbContext.Errors.ToListAsync();
+
+        public async Task<Error> GetById(int id)
+        {
+            var err = await _dbContext.Errors.FirstOrDefaultAsync(x => x.Id == id);
+            return err;
+        }
+
+        public async Task<Error> Edit(int id, Error error)
+        {
+            error.EncodeName();
+            _dbContext.Update(error);
+
+            await _dbContext.SaveChangesAsync();
+            return error;
+        }
+        public async Task Delete(Error error)
+        {
+            _dbContext.Remove(error);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

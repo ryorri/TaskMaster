@@ -13,9 +13,9 @@ namespace TaskMaster.Controllers
     {
         private readonly TaskMasterDbContext _dbContext;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly UsersManipulation _userManipulator;
+        private readonly CRUDManipulation _userManipulator;
 
-        public AdminPanelController(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager, UsersManipulation userManipulator) 
+        public AdminPanelController(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager, CRUDManipulation userManipulator) 
         {
             _dbContext = dbContext;
             _userManager = userManager;
@@ -32,26 +32,8 @@ namespace TaskMaster.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ChangeRole()
         {
-            var users = await _dbContext.Users.ToListAsync();
-
-            var userList = users.ToList().Select(x => new SelectListItem
-            {
-                Text = x.UserName,
-                Value = x.Id.ToString(),
-            });
-
-            var roles = await _dbContext.Roles.ToListAsync();
-
-            var roleList = roles.ToList().Select(x => new SelectListItem
-            {
-                Text = x.Name,
-                Value = x.Name,
-            });
-
-
-
-            ViewBag.usersList = userList;
-            ViewBag.roleList = roleList;
+            ViewBag.usersList = _userManipulator.GetUserList();
+            ViewBag.roleList = _userManipulator.GetRoleList();
 
             return View();
         }
@@ -62,14 +44,13 @@ namespace TaskMaster.Controllers
 
             var userName = _userManipulator.GetUserName(userId);
 
-            IList<string> roles = await _userManager.GetRolesAsync(await userName);
+            var roles = _userManipulator.GetUserRole(userName);
 
-
-            await _userManager.RemoveFromRoleAsync(await userName, roles[0]);
+            await _userManager.RemoveFromRoleAsync(await userName, (await roles.ConfigureAwait(false))[0]);
             await _userManager.AddToRoleAsync(await userName, newRole);
 
 
-            return View();
+            return RedirectToAction("ChangeRole");
         }
     }
 }

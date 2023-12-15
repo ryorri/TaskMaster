@@ -61,7 +61,7 @@ namespace TaskMaster.Controllers
         public async Task<IActionResult> CreateWarning()
         {
             var catModel = await _categoryService.GetAll();
-          
+
             var categories = catModel.ToList().Select(x => new SelectListItem
             {
                 Text = x.Name,
@@ -79,6 +79,66 @@ namespace TaskMaster.Controllers
         {
             await _warningService.Create(warr);
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditWarning(int id)
+        {
+            var catModel = await _categoryService.GetAll();
+
+            var categories = catModel.ToList().Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+            });
+
+
+            ViewBag.catModelView = categories;
+
+            var war = await _warningService.GetById(id);
+            return View(war);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditWarning(int id, Domain.Entities.Warning warr)
+        {
+            await _warningService.Edit(id, warr);
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditError(int id)
+        {
+            var catModel = await _categoryService.GetAll();
+            var prioModel = await _priorityService.GetAll();
+
+
+            var categories = catModel.ToList().Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+            });
+
+            var priorities = prioModel.ToList().Select(x => new SelectListItem
+            {
+                Text = x._Priority,
+                Value = x.Id.ToString(),
+            });
+
+            ViewBag.catModelView = categories;
+            ViewBag.prioModelView = priorities;
+
+            var war = await _errorService.GetById(id);
+            return View(war);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditError(int id, Domain.Entities.Error warr)
+        {
+            await _errorService.Edit(id, warr);
+
+            return RedirectToAction("Index", "Home");
         }
 
 

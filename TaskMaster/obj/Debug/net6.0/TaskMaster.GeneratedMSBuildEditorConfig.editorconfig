@@ -56,6 +56,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JVRFxDcmVhdGVXYXJuaW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/CRUD/EditError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JVRFxFZGl0RXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/CRUD/EditWarning.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1JVRFxFZGl0V2FybmluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/DatabaseViews/_ErrorPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YWJhc2VWaWV3c1xfRXJyb3JQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

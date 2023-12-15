@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using TaskMaster.Infrastructure.DatabaseContext;
 
 namespace TaskMaster.Infrastructure.Methods.AdminPanelMethods
 {
-    public class UsersManipulation
+    public class CRUDManipulation
     {
         private readonly TaskMasterDbContext _dbContext;
         private readonly UserManager<IdentityUser> _userManager;
-        public UsersManipulation(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager)
+        public CRUDManipulation(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
             _dbContext = dbContext;
@@ -26,6 +28,45 @@ namespace TaskMaster.Infrastructure.Methods.AdminPanelMethods
             return userName;
         }
 
+        
 
+        public async Task<IList<string>> GetUserRole(Task<IdentityUser> userName)
+        {
+            IList<string> roles = await _userManager.GetRolesAsync(await userName);
+
+            if (userName == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            return roles;
+        }
+
+
+        public IEnumerable<SelectListItem> GetUserList()
+        {
+            var users = _dbContext.Users.ToList();
+
+            var userList = users.ToList().Select(x => new SelectListItem
+            {
+                Text = x.UserName,
+                Value = x.Id.ToString(),
+            });
+
+            return userList;
+        }
+
+        public IEnumerable<SelectListItem> GetRoleList()
+        {
+            var roles = _dbContext.Roles.ToList();
+
+            var roleList = roles.ToList().Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Name,
+            });
+
+            return roleList;
+        }
     }
 }
