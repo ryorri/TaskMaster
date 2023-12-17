@@ -13,9 +13,9 @@ namespace TaskMaster.Controllers
     {
         private readonly TaskMasterDbContext _dbContext;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly CRUDManipulation _userManipulator;
+        private readonly UserManipulation _userManipulator;
 
-        public AdminPanelController(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager, CRUDManipulation userManipulator) 
+        public AdminPanelController(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager, UserManipulation userManipulator) 
         {
             _dbContext = dbContext;
             _userManager = userManager;

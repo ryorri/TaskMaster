@@ -13,6 +13,9 @@
             <th>
                 <p>Answer</p>
             </th>
+            <th>
+                <p>Controls</p>
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -26,11 +29,31 @@
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Answer)
+                @if (item.Answer == null)
+                {
+                    <img src=@Url.Content("~/Images/DatabaseViewsImages/nok.png") />
+
+                }
+                else
+                {
+                    <img src=@Url.Content("~/Images/DatabaseViewsImages/ok.png") />
+                }
+
             </td>
             <td>
-                    @Html.ActionLink("Edit","EditError","CRUD", new { id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                
+                @Html.ActionLink("Details |", "ErrorDetails","CRUD", new { id=item.Id})
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                {
+                    @Html.ActionLink("Edit |","EditError","CRUD", new { id=item.Id })
+                    @Html.ActionLink("Delete |", "DeleteError", "CRUD", new { id = item.Id })
+                }
+                 
+
+
+
+
             </td>
         </tr>
 }

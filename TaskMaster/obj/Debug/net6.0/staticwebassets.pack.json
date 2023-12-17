@@ -5,12 +5,16 @@
       "PackagePath": "staticwebassets\\TaskMaster.bundle.scp.css"
     },
     {
-      "Id": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster\\wwwroot\\Images\\DatabaseViewsImages\\nok.png",
+      "PackagePath": "staticwebassets\\Images\\DatabaseViewsImages\\nok.png"
     },
     {
-      "Id": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster\\wwwroot\\Images\\DatabaseViewsImages\\ok.png",
+      "PackagePath": "staticwebassets\\Images\\DatabaseViewsImages\\ok.png"
+    },
+    {
+      "Id": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
       "Id": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster\\wwwroot\\js\\site.js",

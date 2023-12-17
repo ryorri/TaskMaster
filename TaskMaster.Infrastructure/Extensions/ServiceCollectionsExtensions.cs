@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using TaskMaster.Domain.Interfaces;
 using TaskMaster.Infrastructure.Repositories;
 using TaskMaster.Infrastructure.Methods.AdminPanelMethods;
+using TaskMaster.Infrastructure.Methods.CRUDMethods;
 
 namespace TaskMaster.Infrastructure.Extensions
 {
@@ -31,6 +32,7 @@ namespace TaskMaster.Infrastructure.Extensions
             services.AddScoped<RoleSeeder>();
             services.AddScoped<UserSeeder>();
 
+            services.AddScoped<UserManipulation>();
             services.AddScoped<CRUDManipulation>();
         }
 	}

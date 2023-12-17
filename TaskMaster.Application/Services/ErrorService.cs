@@ -23,9 +23,9 @@ namespace TaskMaster.Application.Services
             await _errorRepo.Create(error);
         }
 
-        public Task Delete(Error error)
+        public async Task Delete(Error error)
         {
-            throw new NotImplementedException();
+            await _errorRepo.Delete(error);
         }
 
         public async Task<IEnumerable<ErrorDto>> GetAll()

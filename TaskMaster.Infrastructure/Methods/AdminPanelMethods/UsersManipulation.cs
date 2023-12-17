@@ -6,11 +6,11 @@ using TaskMaster.Infrastructure.DatabaseContext;
 
 namespace TaskMaster.Infrastructure.Methods.AdminPanelMethods
 {
-    public class CRUDManipulation
+    public class UserManipulation
     {
         private readonly TaskMasterDbContext _dbContext;
         private readonly UserManager<IdentityUser> _userManager;
-        public CRUDManipulation(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager)
+        public UserManipulation(TaskMasterDbContext dbContext, UserManager<IdentityUser> userManager)
         {
             _userManager = userManager;
             _dbContext = dbContext;

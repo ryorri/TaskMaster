@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using TaskMaster.Application.Services.Interfaces;
 using TaskMaster.Infrastructure.DatabaseContext;
 
@@ -25,5 +22,31 @@ namespace TaskMaster.Infrastructure.Methods.CRUDMethods
             _priorityService = priorityService;
         }
 
+        public async Task<IEnumerable<SelectListItem>> GetCategoryToViewbag()
+        {
+            var catModel = await _categoryService.GetAll();
+
+            IEnumerable<SelectListItem> categories = catModel.ToList().Select(x => new SelectListItem
+            {
+                Text = x.Name,
+                Value = x.Id.ToString(),
+            });
+
+            return categories;
+        }
+
+
+        public async Task<IEnumerable<SelectListItem>> GetPriorityToViewbag()
+        {
+            var prioModel = await _priorityService.GetAll();
+
+            var priorities = prioModel.ToList().Select(x => new SelectListItem
+            {
+                Text = x._Priority,
+                Value = x.Id.ToString(),
+            });
+
+            return (IEnumerable<SelectListItem>)priorities;
+        }
     }
 }

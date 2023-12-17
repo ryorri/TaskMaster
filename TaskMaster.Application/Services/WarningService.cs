@@ -42,9 +42,9 @@ namespace TaskMaster.Application.Services
             return dto;
         }
 
-        public Task Delete(Warning warr)
+        public async Task Delete(Warning warr)
         {
-            throw new NotImplementedException();
+            await _warrRepo.Delete(warr);           
         }
 
         public async Task<WarningDto> GetById(int id)
