@@ -13,7 +13,6 @@ namespace TaskMaster.Domain.Interfaces
         Task<Error> Edit(int id, Domain.Entities.Error error);
         Task Delete(Domain.Entities.Error error);
         Task<IEnumerable<Domain.Entities.Error>> GetAll();
-
         Task<Domain.Entities.Error> GetById(int id);
     }
 }

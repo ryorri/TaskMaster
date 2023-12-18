@@ -1,6 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Security.Claims;
 using TaskMaster.Application.Services.Interfaces;
+using TaskMaster.Domain.Entities;
 using TaskMaster.Infrastructure.Methods.CRUDMethods;
 
 namespace TaskMaster.Controllers
@@ -14,17 +20,19 @@ namespace TaskMaster.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IPriorityService _priorityService;
 
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly CRUDManipulation _crudManipulation;
         #endregion
 
         #region Constructor
-        public CRUDController(IErrorService errorService, ICategoryService categoryService, IWarningService warningService, IPriorityService priorityService, CRUDManipulation crudManipulation)
+        public CRUDController(IErrorService errorService, ICategoryService categoryService, IWarningService warningService, IPriorityService priorityService, CRUDManipulation crudManipulation, UserManager<IdentityUser> userManager)
         {
             _warningService = warningService;
             _errorService = errorService;
             _categoryService = categoryService;
             _priorityService = priorityService;
             _crudManipulation = crudManipulation;
+            _userManager = userManager;
         }
         #endregion
 
@@ -44,8 +52,9 @@ namespace TaskMaster.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateError(Domain.Entities.Error error)
         {
+            await _crudManipulation.SetUserIdInTable(error, await _userManager.GetUserAsync(HttpContext.User));
             await _errorService.Create(error);
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         
@@ -61,6 +70,7 @@ namespace TaskMaster.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateWarning(Domain.Entities.Warning warr)
         {
+            await _crudManipulation.SetUserIdInTable(warr, await _userManager.GetUserAsync(HttpContext.User));
             await _warningService.Create(warr);
             return RedirectToAction("Index", "Home");
         }
@@ -168,9 +178,6 @@ namespace TaskMaster.Controllers
             return View(await _warningService.GetById(id));
         }
         #endregion
-
-
-
 
     }
 }

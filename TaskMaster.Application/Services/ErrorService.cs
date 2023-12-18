@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
 using TaskMaster.Application.Objects;
 using TaskMaster.Application.Services.Interfaces;
 using TaskMaster.Domain.Entities;
@@ -9,6 +11,7 @@ namespace TaskMaster.Application.Services
     public class ErrorService : IErrorService
     {
         private readonly IErrorRepo _errorRepo;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly IMapper _mapper;
 
         public ErrorService(IErrorRepo errorRepo, IMapper mapper)

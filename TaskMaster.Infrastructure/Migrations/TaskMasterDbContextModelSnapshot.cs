@@ -86,6 +86,10 @@ namespace TaskMaster.Infrastructure.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -137,6 +141,8 @@ namespace TaskMaster.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -242,7 +248,7 @@ namespace TaskMaster.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category", (string)null);
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Error", b =>
@@ -276,13 +282,19 @@ namespace TaskMaster.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("PriorityId");
 
-                    b.ToTable("Errors", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Errors");
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Priority", b =>
@@ -299,7 +311,7 @@ namespace TaskMaster.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Priority", (string)null);
+                    b.ToTable("Priority");
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Warning", b =>
@@ -330,11 +342,24 @@ namespace TaskMaster.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Warnings", (string)null);
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Warnings");
+                });
+
+            modelBuilder.Entity("TaskMaster.Domain.Entities.ApplicationUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -402,9 +427,17 @@ namespace TaskMaster.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TaskMaster.Domain.Entities.ApplicationUser", "User")
+                        .WithMany("ErrorEntry")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
 
                     b.Navigation("Priority");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Warning", b =>
@@ -415,7 +448,15 @@ namespace TaskMaster.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TaskMaster.Domain.Entities.ApplicationUser", "User")
+                        .WithMany("WarningEntry")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TaskMaster.Domain.Entities.Category", b =>
@@ -428,6 +469,13 @@ namespace TaskMaster.Infrastructure.Migrations
             modelBuilder.Entity("TaskMaster.Domain.Entities.Priority", b =>
                 {
                     b.Navigation("ErrorEntry");
+                });
+
+            modelBuilder.Entity("TaskMaster.Domain.Entities.ApplicationUser", b =>
+                {
+                    b.Navigation("ErrorEntry");
+
+                    b.Navigation("WarningEntry");
                 });
 #pragma warning restore 612, 618
         }

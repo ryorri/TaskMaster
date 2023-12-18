@@ -14,5 +14,6 @@ namespace TaskMaster.Domain.Interfaces
         Task Delete(Domain.Entities.Warning warr);
         Task<Domain.Entities.Warning> GetById(int id);
         Task<IEnumerable<Domain.Entities.Warning>> GetAll();
+
     }
 }

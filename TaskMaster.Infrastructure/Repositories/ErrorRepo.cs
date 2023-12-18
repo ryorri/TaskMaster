@@ -19,7 +19,6 @@ namespace TaskMaster.Infrastructure.Repositories
              await _dbContext.SaveChangesAsync();
         }
 
-
         public async Task<IEnumerable<Error>> GetAll() => await _dbContext.Errors.ToListAsync();
 
         public async Task<Error> GetById(int id)

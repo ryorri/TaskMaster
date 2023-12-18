@@ -15,5 +15,5 @@ namespace TaskMaster.Domain.Interfaces
         Category Category { get; set; }
 
         void EncodeName();
-    }
+      }
 }

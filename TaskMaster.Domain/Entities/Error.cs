@@ -1,10 +1,13 @@
-﻿using TaskMaster.Domain.Interfaces;
+﻿using Microsoft.AspNetCore.Identity;
+using TaskMaster.Domain.Interfaces;
 
 namespace TaskMaster.Domain.Entities
 {
     public class Error : IErrorWarning
 	{
-		public int Id { get; set; }
+		private readonly UserManager<IdentityUser> _userManager;
+
+        public int Id { get; set; }
 		public string Title { get; set; } = default!;
 
 		public int CategoryId { get; set; }
@@ -15,6 +18,11 @@ namespace TaskMaster.Domain.Entities
 		public int PriorityId { get; set; }
 		public Priority? Priority { get; set; }
         public string? Answer { get; set; } = default!;
-		public void EncodeName() => Encodedname = Title.ToLower().Replace(" ", "-");
-	}
+		public string UserId { get; set; }
+
+        public ApplicationUser User { get; set; }
+
+
+        public void EncodeName() => Encodedname = Title.ToLower().Replace(" ", "-");
+	}	
 }

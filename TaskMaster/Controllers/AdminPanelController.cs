@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
+using System.Security.Claims;
 using TaskMaster.Infrastructure.DatabaseContext;
 using TaskMaster.Infrastructure.Methods.AdminPanelMethods;
 
@@ -26,6 +27,7 @@ namespace TaskMaster.Controllers
         public IActionResult Index()
         {
             return View();
+
         }
 
         [HttpGet]

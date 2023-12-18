@@ -13,9 +13,10 @@ namespace TaskMaster.Application.Objects
         public string Title { get; set; }
         public string? Description { get; set; }
         public int CategoryId { get; set; }
-        public Category? Category { get; set; }
+        //public Category? Category { get; set; }
         public int PriorityId { get; set; }
-        public Priority? Priority { get; set; }
+        //public Priority? Priority { get; set; }
         public string? Answer { get; set; }
+        public string UserId { get; set; }
     }
 }

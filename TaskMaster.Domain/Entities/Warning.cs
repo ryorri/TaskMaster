@@ -13,7 +13,8 @@ namespace TaskMaster.Domain.Entities
 		public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 		public string Encodedname { get; private set; } = default!;
         public string? Answer { get; set; } = default!;
-
-		public void EncodeName() => Encodedname = Title.ToLower().Replace(" ", "-");
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
+        public void EncodeName() => Encodedname = Title.ToLower().Replace(" ", "-");
 	}
 }

@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TaskMaster.Application.Services.Interfaces;
+using TaskMaster.Domain.Entities;
 using TaskMaster.Infrastructure.DatabaseContext;
 
 namespace TaskMaster.Infrastructure.Methods.CRUDMethods
@@ -48,5 +51,16 @@ namespace TaskMaster.Infrastructure.Methods.CRUDMethods
 
             return (IEnumerable<SelectListItem>)priorities;
         }
+
+        public async Task SetUserIdInTable(Error error, IdentityUser user)
+        {
+            error.UserId = user.Id;
+        }
+        public async Task SetUserIdInTable(Warning warr, IdentityUser user)
+        {
+            warr.UserId = user.Id;
+        }
+
+
     }
 }
