@@ -30,7 +30,7 @@ namespace TaskMaster.Infrastructure.Seeders
 
 					var sw = new Domain.Entities.Category()
 					{
-						Name = "Softwate",
+						Name = "Software",
 						Description = "What wrong with your program?"
 					};
 					_dbContext.Category.Add(sw);

@@ -2,19 +2,12 @@
 @using (Html.BeginForm("catModelView", "CRUD", FormMethod.Get));
 @using (Html.BeginForm("prioModelView", "CRUD", FormMethod.Get)) ;
 
-
-
-
-
-
-
 @{
-    ViewData["Title"] = "CreateError";
+    ViewData["Title"] = "Create Error";
 }
 
-<h1>CreateError</h1>
+<h1>Create Error</h1>
 
-<h4>ErrorDto</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -40,7 +33,7 @@
                 <select asp-for="PriorityId" class="form-control" asp-items="@ViewBag.prioModelView"></select>
             </div>
 
-
+            <br />
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -48,9 +41,7 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
