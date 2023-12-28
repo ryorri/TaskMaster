@@ -16,7 +16,7 @@ namespace TaskMaster.Infrastructure.Methods.AdminPanelMethods
             _dbContext = dbContext;
         }
 
-        public async Task<IdentityUser> GetUserName(string userId)
+        public async Task<IdentityUser> GetUser(string userId)
         {
             IdentityUser? userName = await _dbContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
 
@@ -67,6 +67,18 @@ namespace TaskMaster.Infrastructure.Methods.AdminPanelMethods
             });
 
             return roleList;
+        }
+
+        public Task RemoveUser(IdentityUser? user)
+        {
+            if (user == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            _userManager.DeleteAsync(user);
+            _dbContext.SaveChangesAsync();
+            return Task.CompletedTask;
         }
     }
 }

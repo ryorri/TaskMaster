@@ -40,12 +40,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/AdminPanel/ChangeRole.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxDaGFuZ2VSb2xlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/AdminPanel/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/AdminPanel/_ChangeRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxfQ2hhbmdlUm9sZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/AdminPanel/_RemoveUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxfUmVtb3ZlVXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [S:/Studia/Semestr III/Programowanie w ASP.Net/Projekt_TaskMaster/TaskMaster/TaskMaster/Views/CRUD/CreateError.cshtml]

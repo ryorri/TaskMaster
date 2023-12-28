@@ -8,6 +8,7 @@ using TaskMaster.Domain.Interfaces;
 using TaskMaster.Infrastructure.Repositories;
 using TaskMaster.Infrastructure.Methods.AdminPanelMethods;
 using TaskMaster.Infrastructure.Methods.CRUDMethods;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace TaskMaster.Infrastructure.Extensions
 {
@@ -18,7 +19,12 @@ namespace TaskMaster.Infrastructure.Extensions
 			services.AddDbContext<TaskMasterDbContext>(options => options.UseSqlServer(
 				configuration.GetConnectionString("TaskMaster")));
 
-			services.AddDefaultIdentity<IdentityUser>()
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.PageViewLocationFormats.Add("/Identity/Account/{0}" + RazorViewEngine.ViewExtension);
+            });
+
+            services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
 				.AddEntityFrameworkStores<TaskMasterDbContext>();
 

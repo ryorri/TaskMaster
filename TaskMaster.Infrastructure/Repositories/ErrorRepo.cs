@@ -30,6 +30,7 @@ namespace TaskMaster.Infrastructure.Repositories
         public async Task<Error> Edit(int id, Error error)
         {
             error.EncodeName();
+            error.Id = id;
             _dbContext.Update(error);
 
             await _dbContext.SaveChangesAsync();

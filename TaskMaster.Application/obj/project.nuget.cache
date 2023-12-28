@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "gZUBf+VX7a62ycVjRJ0JdYB1ouZf9i1gpSyZPTxRV1mgv4jZJgT2QXS+aLDBUwE2sA7vfgZi1RvrB/qUDll7xg==",
+  "dgSpecHash": "DbMVHPwJnNCUYpS4kpB6NC2Kg8sr7rSqGjH470KuxN5v2aXL0CKUh+umhng611apRcaJlJaUApJFdkwoE+ZDWg==",
   "success": true,
   "projectFilePath": "S:\\Studia\\Semestr III\\Programowanie w ASP.Net\\Projekt_TaskMaster\\TaskMaster\\TaskMaster.Application\\TaskMaster.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Rafał\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
+    "C:\\Users\\Rafał\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.8.1\\fluentvalidation.dependencyinjectionextensions.11.8.1.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
     "C:\\Users\\Rafał\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.25\\microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",

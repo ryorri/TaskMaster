@@ -8,9 +8,9 @@ using TaskMaster.Application.Objects;
 
 namespace TaskMaster.Application.Mapping
 {
-    public class ErrorMappingProfile : Profile
+    public class MappingProfile : Profile
     {
-        public ErrorMappingProfile()
+        public MappingProfile()
         {
             CreateMap<ErrorDto, Domain.Entities.Error>();
             CreateMap<Domain.Entities.Error, ErrorDto>();

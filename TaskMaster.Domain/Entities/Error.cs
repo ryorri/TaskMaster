@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using TaskMaster.Domain.Interfaces;
 
 namespace TaskMaster.Domain.Entities
@@ -8,7 +9,8 @@ namespace TaskMaster.Domain.Entities
 		private readonly UserManager<IdentityUser> _userManager;
 
         public int Id { get; set; }
-		public string Title { get; set; } = default!;
+
+        public string Title { get; set; } = default!;
 
 		public int CategoryId { get; set; }
 		public Category? Category { get; set; }

@@ -19,6 +19,7 @@ namespace TaskMaster
 
             builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddApplication();
+            builder.Services.AddValidators();
 
 
 

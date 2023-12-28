@@ -51,10 +51,10 @@ namespace TaskMaster.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateError(Domain.Entities.Error error)
-        {
-            await _crudManipulation.SetUserIdInTable(error, await _userManager.GetUserAsync(HttpContext.User));
-            await _errorService.Create(error);
-            return RedirectToAction("Index", "Home");
+        { 
+                await _crudManipulation.SetUserIdInTable(error, await _userManager.GetUserAsync(HttpContext.User));
+                await _errorService.Create(error);
+                return RedirectToAction("Index", "Home");
         }
 
         
@@ -94,6 +94,8 @@ namespace TaskMaster.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditWarning(int id, Domain.Entities.Warning warr)
         {
+            await _crudManipulation.SetUserIdInTable(warr, await _userManager.GetUserAsync(HttpContext.User));
+
             await _warningService.Edit(id, warr);
 
             return RedirectToAction("Index", "Home");
@@ -106,6 +108,8 @@ namespace TaskMaster.Controllers
             ViewBag.catModelView = await _crudManipulation.GetCategoryToViewbag();
             ViewBag.prioModelView = await _crudManipulation.GetPriorityToViewbag();
 
+
+
             var err = await _errorService.GetById(id);
             return View(err);
         }
@@ -113,9 +117,11 @@ namespace TaskMaster.Controllers
         [Authorize(Roles = "Moderator,Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditError(int id, Domain.Entities.Error warr)
+        public async Task<IActionResult> EditError(int id, Domain.Entities.Error err)
         {
-            await _errorService.Edit(id, warr);
+            await _crudManipulation.SetUserIdInTable(err, await _userManager.GetUserAsync(HttpContext.User));
+
+            await _errorService.Edit(id, err);
 
             return RedirectToAction("Index", "Home");
         }

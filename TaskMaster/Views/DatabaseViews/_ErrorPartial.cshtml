@@ -5,16 +5,16 @@
     <thead>
         <tr>
             <th>
-                <p>Title</p>
+                <p><h4>Title</h4></p>
             </th>
             <th>
-                <p>Description</p>
+                <p><h4>Description</h4></p>
             </th>
             <th>
-                <p>Answer</p>
+                <p><h4>Answer</h4></p>
             </th>
             <th>
-                <p>Controls</p>
+                <p><h4>Controls</h4></p>
             </th>
             <th></th>
         </tr>
@@ -26,7 +26,15 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Description)
+                    @if (item.Description.LongCount() <= 20)
+                    {
+                        @Html.DisplayFor(modelItem => item.Description)
+                    }
+                    else
+                    {
+                        @(item.Description.ToString().Substring(0, 17) + "...")     
+                    }
+                    
             </td>
             <td>
                 @if (item.Answer == null)
@@ -41,15 +49,17 @@
 
             </td>
             <td>
-                
-                @Html.ActionLink("Details |", "ErrorDetails","CRUD", new { id=item.Id})
+                @Html.ActionLink("Details", "ErrorDetails","CRUD", new { id=item.Id }, new { @class="btn btn-outline-dark"})
 
                 @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                 {
-                    @Html.ActionLink("Edit |","EditError","CRUD", new { id=item.Id })
-                    @Html.ActionLink("Delete |", "DeleteError", "CRUD", new { id = item.Id })
+                     @Html.ActionLink("Edit","EditError","CRUD", new { id=item.Id }, new { @class="btn btn-outline-dark", @style="margin-right:4px;"}) 
                 }
-                 
+                
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Delete", "DeleteError", "CRUD", new { id = item.Id }, new { @class="btn btn-outline-dark"})
+                }
 
 
 
