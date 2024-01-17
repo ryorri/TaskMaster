@@ -26,14 +26,19 @@
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
+                    @if(item.Description == null)
+                    {
+                        item.Description = "";
+                    }
                     @if (item.Description.LongCount() <= 20)
                     {
                         @Html.DisplayFor(modelItem => item.Description)
                     }
                     else
                     {
-                        @(item.Description.ToString().Substring(0, 17) + "...")     
+                        @(item.Description.ToString().Substring(0,17)+"...")     
                     }
+
                     
             </td>
             <td>

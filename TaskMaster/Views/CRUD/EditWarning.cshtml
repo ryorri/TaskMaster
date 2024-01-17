@@ -32,7 +32,7 @@
                 <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.catModelView"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Answer" class="control-label"> Category</label>
+                <label asp-for="Answer" class="control-label"> Answer</label>
                 <input asp-for="Answer" class="form-control" />
                 <span asp-validation-for="Answer" class="text-danger"></span>
             </div>
@@ -45,7 +45,9 @@
         </form>
     </div>
 </div>
-
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to List</a>
+</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
